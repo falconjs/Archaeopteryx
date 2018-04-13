@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="721cbc83-8bb2-4111-9c8e-cf9f97a9feff" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Case/Titanic/PScript_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Case/Titanic/PScript_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter01_Audience_aim_motivation.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter01_Audience_aim_motivation.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter03_Why_python.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter03_Why_python.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter04_Introduction_to_the_IPython_Notebook.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter04_Introduction_to_the_IPython_Notebook.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter05_A_closer_look_at_our_data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter05_A_closer_look_at_our_data.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter14_Z_and_t_distributions.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter14_Z_and_t_distributions.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +23,11 @@
       <file leaf-file-name="Time Series Analysis - ARMA - Sunspots Data.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+            <state relative-caret-position="493">
+              <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+              <folding>
+                <element signature="e#22#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,8 +49,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.ipynb" />
-        <option value="$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.py" />
         <option value="$PROJECT_DIR$/Case/Titanic/PScript_1.py" />
+        <option value="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter03_Why_python.ipynb" />
+        <option value="$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.py" />
+        <option value="$PROJECT_DIR$/Python_for_Medical_Statistics/README.md" />
       </list>
     </option>
   </component>
@@ -61,17 +72,6 @@
             <path>
               <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
               <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="Statistic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="Statistic" type="462c0819:PsiDirectoryNode" />
-              <item name="Statsmodels" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -102,7 +102,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.PScript_1">
+  <component name="RunManager" selected="Jupyter Notebook.Archaeopteryx">
     <configuration name="Archaeopteryx" type="JupiterNotebook" factoryName="Jupyter Notebook">
       <module name="Archaeopteryx" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -180,15 +180,25 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" visible="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32972974" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32972974" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32972974" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31135136" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31135136" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32972974" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -199,7 +209,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,13 +269,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Case/Titanic/PScript_1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -284,10 +286,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter01_Audience_aim_motivation.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter04_Introduction_to_the_IPython_Notebook.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter01_Audience_aim_motivation.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Python_for_Medical_Statistics/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter03_Why_python.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Python_for_Medical_Statistics/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="111" selection-start-line="4" selection-start-column="111" selection-end-line="4" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="493">
+          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
