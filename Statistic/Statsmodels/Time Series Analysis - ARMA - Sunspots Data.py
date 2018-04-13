@@ -26,6 +26,8 @@ fig = plt.figure(figsize=(12,8))
 ax1 = fig.add_subplot(211)
 fig = sm.graphics.tsa.plot_acf(dta.values.squeeze(), lags=40, ax=ax1)
 ax2 = fig.add_subplot(212)
+
+# TODO find the bug here
 # fig = sm.graphics.tsa.plot_pacf(dta, lags=40, ax=ax2)
 
 
