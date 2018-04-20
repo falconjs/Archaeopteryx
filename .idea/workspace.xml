@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="721cbc83-8bb2-4111-9c8e-cf9f97a9feff" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Learning/Basic/Python - Lists.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter05_A_closer_look_at_our_data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter05_A_closer_look_at_our_data.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter08_Research_types.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter08_Research_types.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter10_Introducing_pandas.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter10_Introducing_pandas.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter11_Measures_of_central_tendency_dispersion.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter11_Measures_of_central_tendency_dispersion.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter12_The_connection_between_probability_and_area.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter12_The_connection_between_probability_and_area.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter13_The_central_limit_theorem.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter13_The_central_limit_theorem.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -36,10 +37,13 @@
         <option value="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter03_Why_python.ipynb" />
         <option value="$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.py" />
         <option value="$PROJECT_DIR$/Python_for_Medical_Statistics/README.md" />
+        <option value="$PROJECT_DIR$/Learning/Basic/Python - Lists.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1178" />
+    <option name="y" value="166" />
     <option name="width" value="1009" />
     <option name="height" value="1040" />
   </component>
@@ -64,7 +68,13 @@
             <path>
               <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
               <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="Python_for_Medical_Statistics" type="462c0819:PsiDirectoryNode" />
+              <item name="Learning" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
+              <item name="Learning" type="462c0819:PsiDirectoryNode" />
+              <item name="Basic" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -183,15 +193,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-1608" y="172" width="1616" height="916" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.2681081" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30038023" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.26751593" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32972974" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32972974" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31135136" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.32866243" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31082803" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32972974" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -262,13 +272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Case/Titanic/PScript_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Case/Titanic/An Interactive Data Science Tutorial.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -329,6 +332,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Case/Titanic/PScript_1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Learning/Basic/Python - Lists.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="40" column="12" lean-forward="true" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter11_Measures_of_central_tendency_dispersion.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="23" />
         </state>
       </provider>
     </entry>
