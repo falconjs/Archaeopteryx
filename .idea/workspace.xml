@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="721cbc83-8bb2-4111-9c8e-cf9f97a9feff" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Learning/Seaborn/Plotting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Archaeopteryx.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Archaeopteryx.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter18_Comparing_means.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter18_Comparing_means.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter19_Comparing_categorical_data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter19_Comparing_categorical_data.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter20_Linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter20_Linear_regression.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter21_Sensitivity_specificity_risks_rates_odds.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter21_Sensitivity_specificity_risks_rates_odds.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Statistic/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,10 +41,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="1036" />
+    <option name="y" value="-17" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="920" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -57,7 +52,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -85,10 +79,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -202,13 +198,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1358" y="-8" width="1456" height="876" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24920969" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23554301" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.26751593" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32972974" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.32864866" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.2705249" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.29044586" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32972974" />
@@ -253,12 +249,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Case/T&amp;E/T&amp;E Analysis R1.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Case/T&amp;E/T&amp;E Analysis R1.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Learning/Statsmodels/Time Series Analysis - ARMA - Sunspots Data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
