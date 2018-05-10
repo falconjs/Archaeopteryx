@@ -16,6 +16,22 @@ for finding the length of a sequence and for finding its largest and smallest el
 # Python Lists
 # =========================
 
+# List Creation
+
+# tuple
+(1,10)
+
+# set
+{1,10}
+
+# list
+# type([1,10])
+[1,10]
+list(range(0,10,2))
+# Out[9]: [0, 2, 4, 6, 8]
+
+list('abcdef')
+# Out[12]: ['a', 'b', 'c', 'd', 'e', 'f']
 
 # Basic List Operations
 
