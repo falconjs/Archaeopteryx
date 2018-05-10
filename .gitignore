@@ -102,6 +102,7 @@ ENV/
 
 # PyCharm
 .idea/
+.idea/*.*
 input/
 
 .idea/Archaeopteryx.iml
