@@ -63,3 +63,9 @@ for x in [1,2,3]: print(x)
 # 1
 # 2
 # 3
+
+# [1,2,3] / [4,5,6]
+# unsupported operand type(s) for /: 'list' and 'list'
+
+
+
