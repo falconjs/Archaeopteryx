@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="721cbc83-8bb2-4111-9c8e-cf9f97a9feff" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Kaggle_Learn_Pandas/01 Creating, Reading &amp; Writing Data.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Learning/Basic/Python - Lists.py" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/Basic/Python - Lists.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter21_Sensitivity_specificity_risks_rates_odds.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter21_Sensitivity_specificity_risks_rates_odds.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,22 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="indexing_selecting_assigning.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/input/advanced-pandas-exercises/indexing_selecting_assigning.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Python - Lists.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Learning/Basic/Python - Lists.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="285">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -66,10 +51,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="1358" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1456" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -93,22 +78,6 @@
             <path>
               <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
               <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="input" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="input" type="462c0819:PsiDirectoryNode" />
-              <item name="advanced-pandas-exercises" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="Kaggle_Learn_Pandas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
               <item name="Learning" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -125,7 +94,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -240,13 +209,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1358" y="-8" width="1456" height="876" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23445733" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23413259" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.26751593" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32972974" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.26918918" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.26917902" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.28972974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32972974" />
@@ -291,20 +260,15 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/input/advanced-pandas-exercises/creating_reading_writing.py">
+    <entry file="file://$PROJECT_DIR$/Learning/Basic/Python - Lists.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+        <state relative-caret-position="540">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/input/advanced-pandas-exercises/creating_reading_writing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/input/advanced-pandas-exercises/creating_reading_writing.py" />
+    <entry file="file://$PROJECT_DIR$/input/advanced-pandas-exercises/creating_reading_writing.py" />
     <entry file="file://$PROJECT_DIR$/Case/T&amp;E/T&amp;E Analysis R1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2958">
@@ -431,13 +395,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Kaggle_Learn_Pandas/01 Creating, Reading &amp; Writing Data.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Kaggle_Learn_Pandas/01 Creating, Reading &amp; Writing Data.ipynb" />
     <entry file="file://$PROJECT_DIR$/Kaggle_Learn_Pandas/advanced-pandas-exercises/creating_reading_writing.py" />
     <entry file="file://$PROJECT_DIR$/Case/T&amp;E/T&amp;E Analysis R1.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -453,26 +411,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/input/advanced-pandas-exercises/creating_reading_writing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/input/advanced-pandas-exercises/indexing_selecting_assigning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/input/advanced-pandas-exercises/creating_reading_writing.py" />
+    <entry file="file://$PROJECT_DIR$/input/advanced-pandas-exercises/indexing_selecting_assigning.py" />
     <entry file="file://$PROJECT_DIR$/Learning/Basic/Python - Lists.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
