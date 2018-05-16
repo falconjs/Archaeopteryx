@@ -68,4 +68,34 @@ for x in [1,2,3]: print(x)
 # unsupported operand type(s) for /: 'list' and 'list'
 
 
+# Filtering Sequence Elements
+# Python Cookbook 1.16
+
+mylist = [1, 4, -5, 10, -7, 2, 3, -1]
+
+[n for n in mylist if n > 0]
+# [1, 4, 10, 2, 3]
+
+[n for n in mylist if n < 0]
+# [-5, -7, -1]
+
+# One potential downside of using a list comprehension is that it might produce a large result
+# if the original input is large. If this is a concern, you can use generator expressions to
+# produce the filtered values iteratively. For example:
+# 使用列表推导的一个潜在缺陷就是如果输入非常大的时候会产生一个非常大的结果集，占用大量内存。如
+# 果你对内存比较敏感，那么你可以使用生成器表达式迭代产生过滤的元素。比如：
+
+pos = (n for n in mylist if n > 0)
+
+pos
+# <generator object <genexpr> at 0x0000000005A7B570>
+
+for x in pos:
+    print(x)
+
+# 1
+# 4
+# 10
+# 2
+# 3
 
