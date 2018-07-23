@@ -118,3 +118,49 @@ np.sum(x, axis=0)
 
 np.sum(x, axis=1)
 # array([ 6., 15.])
+
+# labels as float 1-hot encodings.
+
+np.arange(10)
+# Out[5]: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+labels = np.array([0, 1, 3, 5, 7, 9])
+
+labels
+# array([0, 1, 3, 5, 7, 9])
+
+labels[:, None]
+# array([[0],
+#        [1],
+#        [3],
+#        [5],
+#        [7],
+#        [9]])
+
+# Map 0 to [1.0, 0.0, 0.0 ...], 1 to [0.0, 1.0, 0.0 ...]
+
+np.arange(10) == labels[:, None]
+# array([[ True, False, False, False, False, False, False, False, False, False],
+#        [False,  True, False, False, False, False, False, False, False, False],
+#        [False, False, False,  True, False, False, False, False, False, False],
+#        [False, False, False, False, False,  True, False, False, False, False],
+#        [False, False, False, False, False, False, False,  True, False, False],
+#        [False, False, False, False, False, False, False, False, False, True]])
+
+# The same as the above one.
+labels[:, None] == np.arange(10)
+# array([[ True, False, False, False, False, False, False, False, False, False],
+#        [False,  True, False, False, False, False, False, False, False, False],
+#        [False, False, False,  True, False, False, False, False, False, False],
+#        [False, False, False, False, False,  True, False, False, False, False],
+#        [False, False, False, False, False, False, False,  True, False, False],
+#        [False, False, False, False, False, False, False, False, False, True]])
+
+(np.arange(10) == labels[:, None]).astype(np.float32)
+# array([[1., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+#        [0., 1., 0., 0., 0., 0., 0., 0., 0., 0.],
+#        [0., 0., 0., 1., 0., 0., 0., 0., 0., 0.],
+#        [0., 0., 0., 0., 0., 1., 0., 0., 0., 0.],
+#        [0., 0., 0., 0., 0., 0., 0., 1., 0., 0.],
+#        [0., 0., 0., 0., 0., 0., 0., 0., 0., 1.]], dtype=float32)
+
