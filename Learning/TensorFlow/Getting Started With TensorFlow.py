@@ -163,7 +163,7 @@ for i in range(1000):
   sess.run(train, {x: [1, 2, 3, 4], y: [0, -1, -2, -3]})
 
 print(sess.run([W, b]))
-
+print(sess.run(loss, {x: [1, 2, 3, 4], y: [0, -1, -2, -3]}))
 
 """
 Now we have done actual machine learning! Although this simple linear regression model does not require much TensorFlow
