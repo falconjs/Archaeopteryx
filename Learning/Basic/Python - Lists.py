@@ -27,6 +27,10 @@ for finding the length of a sequence and for finding its largest and smallest el
 # list
 # type([1,10])
 [1,10]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1623e142cccd8b336f596ff44ca0e5759b803108
 list(range(0,10,2))
 # Out[9]: [0, 2, 4, 6, 8]
 

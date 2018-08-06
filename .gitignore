@@ -103,6 +103,7 @@ ENV/
 # PyCharm
 .idea/
 .idea/*.*
+<<<<<<< HEAD
 input/
 
 .idea/Archaeopteryx.iml
@@ -111,5 +112,13 @@ input/
 .idea/Archaeopteryx.iml
 .idea/misc.xml
 .idea/workspace.xml
+=======
+/input/
+
+
+# Tensorboard logs
+/Learning/TensorFlow/logs/
+/Udacity/logs/
+>>>>>>> 1623e142cccd8b336f596ff44ca0e5759b803108
 
 # Ended
