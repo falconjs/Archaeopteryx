@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="721cbc83-8bb2-4111-9c8e-cf9f97a9feff" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Kaggle_Learn_Pandas/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Learning/Pandas/pandas.Series.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Archaeopteryx.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Archaeopteryx.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kaggle_Learn_Pandas/03 Summary functions and maps workbook.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Kaggle_Learn_Pandas/03 Summary functions and maps workbook.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Learning/Basic/Python - Lists.py" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/Basic/Python - Lists.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter01_Audience_aim_motivation.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Python_for_Medical_Statistics/Chapter01_Audience_aim_motivation.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +13,7 @@
   </component>
   <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -51,8 +44,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1346" />
-    <option name="y" value="-18" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1456" />
     <option name="height" value="876" />
   </component>
@@ -62,7 +55,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -75,42 +67,11 @@
               <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
               <item name="Case" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="input" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="Kaggle_Learn_Pandas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="Learning" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="Learning" type="462c0819:PsiDirectoryNode" />
-              <item name="Basic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="Learning" type="462c0819:PsiDirectoryNode" />
-              <item name="Pandas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Archaeopteryx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Archaeopteryx" type="462c0819:PsiDirectoryNode" />
-              <item name="Python_for_Medical_Statistics" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -233,18 +194,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24682651" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.26751593" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.2664872" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50070524" side_tool="true" weight="0.32839838" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4992948" weight="0.41801074" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.2664872" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.28936744" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.4992948" visible="true" weight="0.41857335" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.2667758" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32839838" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
