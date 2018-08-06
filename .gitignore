@@ -103,13 +103,11 @@ ENV/
 # PyCharm
 .idea/
 .idea/*.*
-.input/*.*
-.input/*
-.input/
+/input/
 
 
 # Tensorboard logs
-.Learning/TensorFlow/logs/
-.Udacity/logs/
+/Learning/TensorFlow/logs/
+/Udacity/logs/
 
 # Ended
