@@ -3,8 +3,6 @@ import numpy as np
 a = 2
 b = np.array([[1], [2], [3], [4]])
 
-<<<<<<< HEAD
-=======
 """
 % s
 字符串(采用str()的显示)
@@ -53,7 +51,6 @@ b = np.array([[1], [2], [3], [4]])
 "%"
 """
 
->>>>>>> 1623e142cccd8b336f596ff44ca0e5759b803108
 print("valid_dataset[%s] ~ \ntrain_dataset: \n%s" % (a, b))
 
 # Out:
@@ -64,8 +61,6 @@ print("valid_dataset[%s] ~ \ntrain_dataset: \n%s" % (a, b))
 #  [3]
 #  [4]]
 
-<<<<<<< HEAD
-=======
 print('{0} 和 {1}'.format('Google', 'Runoob'))
 # Google 和 Runoob
 
@@ -75,4 +70,3 @@ print('{1} 和 {0}'.format('Google', 'Runoob'))
 print('站点列表 {0}, {1}, 和 {other}。'.format('Google', 'Runoob', other='Taobao'))
 # 站点列表 Google, Runoob, 和 Taobao。
 
->>>>>>> 1623e142cccd8b336f596ff44ca0e5759b803108

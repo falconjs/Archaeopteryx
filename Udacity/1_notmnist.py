@@ -38,5 +38,6 @@ image_data = (imageio.imread(image_file).astype(float) - pixel_depth / 2) / pixe
 
 print(type(image_data))
 
+
 image_data[0]
 image_data[:, 0]

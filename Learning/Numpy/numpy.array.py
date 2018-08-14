@@ -103,13 +103,8 @@ X1/y4
 # array([[0.25      , 0.5       , 0.75      ],
 #        [0.66666667, 0.83333333, 1.        ]])
 
-<<<<<<< HEAD
-=======
-
 np.dot([1, 2], X1)
 
-
->>>>>>> 1623e142cccd8b336f596ff44ca0e5759b803108
 # ======================= Function ==========================
 
 x = np.array([[1.0, 2.0, 3],[4,5,6]])
@@ -125,8 +120,6 @@ np.sum(x, axis=0)
 
 np.sum(x, axis=1)
 # array([ 6., 15.])
-<<<<<<< HEAD
-=======
 
 # labels as float 1-hot encodings.
 
@@ -173,4 +166,24 @@ labels[:, None] == np.arange(10)
 #        [0., 0., 0., 0., 0., 0., 0., 1., 0., 0.],
 #        [0., 0., 0., 0., 0., 0., 0., 0., 0., 1.]], dtype=float32)
 
->>>>>>> 1623e142cccd8b336f596ff44ca0e5759b803108
+X1 = np.array([[1., 2., 3.],
+              [4., 5., 6.]])
+
+np.argmax(X1, axis=0)
+# Out[7]: array([1, 1, 1], dtype=int64)
+
+np.argmax(X1, axis=1)
+# Out[8]: array([2, 2], dtype=int64)
+
+X1 = np.array([[1., 2., 3.],
+              [4., 5., 6.]])
+
+X2 = np.array([[1., 3., 3.],
+              [4., 5., 6.]])
+
+X1 == X2
+# array([[ True, False,  True],
+#        [ True,  True,  True]])
+
+[1, 2, 3] == [1, 3, 3]
+# False

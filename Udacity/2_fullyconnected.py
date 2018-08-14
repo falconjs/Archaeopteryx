@@ -11,7 +11,7 @@ from six.moves import range
 First reload the data we generated in 1_notmnist.ipynb.
 """
 
-data_root = '../input/notMNIST/' # Change me to store data elsewhere
+data_root = '../../input/notMNIST/' # Change me to store data elsewhere
 pickle_file = data_root + 'notMNIST.pickle'
 
 print('pickle file location: %s' % pickle_file)
@@ -140,7 +140,6 @@ with graph.as_default():
 
     tf.summary.scalar('cross_entropy', loss)
     tf.summary.scalar('accuracy_res', accuracy_res)
-
 
 
 num_steps = 3001
