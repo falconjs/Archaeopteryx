@@ -51,8 +51,8 @@ def accuracy(predictions, labels):
 
 
 # Define a fully connected layer
-def fc_layer(input_x, channels_in, channels_out, name='Full_Connection_Layer'):
-    with tf.name_scope(name):
+def fc_layer(input_x, channels_in, channels_out, layer_name='Full_Connection_Layer'):
+    with tf.name_scope(layer_name):
         # It is not a good idea to set initial value as zero
         # It will cause problem during the learning activity
         # w = tf.Variable(tf.zeros([channels_in, channels_out]))
@@ -75,8 +75,8 @@ def fc_layer(input_x, channels_in, channels_out, name='Full_Connection_Layer'):
 
 
 # Define a Convolutional layer
-def conv_layer(input_x, channels_in, channels_out, name='Convolutional_Layer'):
-    with tf.name_scope(name):
+def conv_layer(input_x, channels_in, channels_out, layer_name='Convolutional_Layer'):
+    with tf.name_scope(layer_name):
         weights = tf.Variable(tf.zeros([5, 5, channels_in, channels_out]), name='W')
         biases = tf.Variable(tf.zeros(channels_out), name='B')
         conv_conn = tf.nn.conv2d(input_x, weights, strides=[1, 1, 1, 1], padding='SAME')
@@ -115,13 +115,18 @@ with graph.as_default():
         tf.summary.image('input', tf_train_ds_image, 3)
 
     # Create the network
-    full_conn_1 = fc_layer(tf_train_dataset, image_size * image_size, num_labels)
+    full_conn_1 = fc_layer(tf_train_dataset, image_size * image_size, num_labels, layer_name='fc_conn_1')
     logits = full_conn_1
 
     # loss_function
     with tf.name_scope('loss_function'):
+        with tf.variable_scope('fc_conn_1', reuse=tf.AUTO_REUSE):
+            fc_conn_w = tf.get_variable("W")
+
         loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels=tf_train_labels,
-                                                                         logits=logits), name='cross_entropy')
+                                                                         logits=logits), name='cross_entropy') \
+            + tf.nn.l2_loss(fc_conn_w)
+
         tf.summary.scalar('cross_entropy', loss)
 
     # Optimizer.
