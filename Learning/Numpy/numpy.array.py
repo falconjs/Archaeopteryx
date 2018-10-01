@@ -14,7 +14,7 @@ a.argsort()[-3:][::-1]
 # array([5, 2, 4], dtype=int64)
 
 
-# array[start:end:step]
+# array[start:before end:step]
 
 a[0:]
 # array([1, 3, 5, 2, 4, 6])

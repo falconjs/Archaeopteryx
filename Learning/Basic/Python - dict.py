@@ -1,6 +1,8 @@
 import pandas as pd
 
-dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+dict = {'Name': 'Zara',
+        'Age': 7,
+        'Class': 'First'}
 
 print("dict['Name']: ", dict['Name'])
 # dict['Name']:  Zara
@@ -12,4 +14,7 @@ dict.keys()
 dict.values()
 dict.items()
 
+dict[['Name','Class']]
+
 pd.DataFrame.from_dict(dict, orient='index')
+
