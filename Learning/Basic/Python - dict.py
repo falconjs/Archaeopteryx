@@ -7,6 +7,20 @@ dict = {'Name': 'Zara',
 len(dict)
 # 3
 
+# add new key
+dict['Age'] = 9
+
+dict['NewKey'] = 'newvalue'
+
+# change value
+dict['NewKey'] = 10
+
+# delete key
+del dict['NewKey']
+
+# check key
+'NewKey' in dict  # true or false
+
 print("dict['Name']: ", dict['Name'])
 # dict['Name']:  Zara
 
