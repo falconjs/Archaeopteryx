@@ -4,6 +4,17 @@ import numpy as np
 
 a = np.array([1,3,5,2,4,6], int)
 
+"""
+numpy.argsort(a, axis=-1, kind='quicksort', order=None)[source]
+Returns the indices that would sort an array.
+
+axis : int or None, optional
+Axis along which to sort. The default is -1 (the last axis). If None, the flattened array is used.
+
+Perform an indirect sort along the given axis using the algorithm specified by the kind keyword. 
+It returns an array of indices of the same shape as a that index data along the given axis in sorted order.
+Returns the indices that would sort this array.
+"""
 a.argsort()
 # array([0, 3, 1, 4, 2, 5], dtype=int64)
 
@@ -13,6 +24,11 @@ a.argsort()[-3:]
 a.argsort()[-3:][::-1]
 # array([5, 2, 4], dtype=int64)
 
+b = np.array([[1,3,5],[2,4,6]], int)
+
+b.argsort()
+# array([[0, 1, 2],
+#        [0, 1, 2]], dtype=int64)
 
 # array[start:before end:step]
 

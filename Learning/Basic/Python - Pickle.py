@@ -3,7 +3,7 @@ import pickle
 
 example_dict = {1:"d", 2:"2", 3:"f"}
 
-root_dir = "./Learning/Basic"
+root_dir = "./Archaeopteryx/Learning/Basic"
 pickle_file = os.path.join(root_dir, 'dict.pickle')
 
 # ===================== Write ======================

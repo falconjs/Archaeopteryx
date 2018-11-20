@@ -1,5 +1,8 @@
 import pandas as pd
 
+# Empty Dict
+dictionary = dict()
+
 dict = {'Name': 'Zara',
         'Age': 7,
         'Class': 'First'}

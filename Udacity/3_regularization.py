@@ -77,13 +77,13 @@ test_dataset["Input_X"], test_dataset["Labels"] = reformat(test_dataset_rw, test
 
 
 def accuracy(predictions, labels):
-    return (100.0 * np.sum(np.argmax(predictions, 1) == np.argmax(labels, 1))
+    return (100.0 * np.sum(np.argmax(predictions, axis=1) == np.argmax(labels, axis=1))
             / predictions.shape[0])
 
 
 def show_result(predictions, labels):
-    print([label_dic[key] for key in np.argmax(predictions, 1)])
-    print([label_dic[key] for key in np.argmax(labels, 1)])
+    print([label_dic[key] for key in np.argmax(predictions, axis=1)])
+    print([label_dic[key] for key in np.argmax(labels, axis=1)])
 
 
 # Define a fully connected layer
@@ -101,7 +101,7 @@ def fc_layer(input_data, channels_in, channels_out, act=None, dropout_kp=None,
         with tf.variable_scope(layer_name):
             # weights = tf.Variable(tf.truncated_normal([channels_in, channels_out], seed=1), name='W')
             weights = tf.get_variable(name='Weights', shape=[channels_in, channels_out], \
-                                      initializer=tf.truncated_normal_initializer())
+                                      initializer=tf.truncated_normal_initializer(stddev=0.5))
             # The biases get initialized to zero.
             # biases = tf.Variable(tf.zeros([channels_out]), name='B')
             biases = tf.get_variable(name='Biases', shape=[channels_out], \
@@ -238,6 +238,7 @@ def build_neural_network_graph(input_data, label, hidden_layers, loss, train):
             # Optimizer.
             "OPTIMIZER": optimizer,
             # Predictions for the training, validation, and test data.
+            "LOGITS": logits,
             "PREDICTION": tf.nn.softmax(logits),
             # "VALID": tf.nn.softmax(valid_logits),
             # "TEST": tf.nn.softmax(test_logits)
@@ -245,7 +246,8 @@ def build_neural_network_graph(input_data, label, hidden_layers, loss, train):
     return info
 
 
-def train_model(model_info, train_dataset, valid_dataset, test_dataset, batch_size, train_steps, log_steps):
+def train_model(model_info, train_dataset, valid_dataset, test_dataset, batch_size, train_steps,
+                log_steps, tb_log_steps):
     """
         Initializes and runs the tensor's graph
     """
@@ -282,9 +284,6 @@ def train_model(model_info, train_dataset, valid_dataset, test_dataset, batch_si
             # Note: we could use better randomization across epochs.
             offset = (step * batch_size) % (train_dataset["Input_X"].shape[0] - batch_size)
 
-            # focus on the 5 data batch to get overfitting case.
-            # offset = batch_size * (step % 5)
-
             # Generate a minibatch.
             batch_data = train_dataset["Input_X"][offset:(offset + batch_size), :]
             batch_labels = train_dataset["Labels"][offset:(offset + batch_size), :]
@@ -297,21 +296,21 @@ def train_model(model_info, train_dataset, valid_dataset, test_dataset, batch_si
             # and the value is the numpy array to feed to it.
 
             train_feed_dict = {tf_train_dataset: batch_data,
-                               tf_train_labels: batch_labels,
-                               }
+                               tf_train_labels: batch_labels}
 
-            if step % log_steps == 0:
+            if step % tb_log_steps == 0:
                 s = session.run(merged_summary, feed_dict=train_feed_dict)
                 writer.add_summary(s, step)
 
-            targets = [model_info["OPTIMIZER"], model_info["LOSS"], model_info["PREDICTION"]]
-            _, l, train_prediction = session.run(targets, feed_dict=train_feed_dict)
+            targets = [model_info["OPTIMIZER"], model_info["LOSS"], model_info["PREDICTION"], model_info["LOGITS"]]
+            _, l, train_prediction, predict_value = session.run(targets, feed_dict=train_feed_dict)
 
-            if step % 500 == 0:
+            if step % log_steps == 0:
                 # Predictions for the validation, and test data.
                 valid_prediction = session.run(model_info["PREDICTION"], feed_dict=valid_feed_dict)
                 print("Minibatch loss at step %d: %f" % (step, l))
-                # print(show_result(train_prediction, batch_labels))
+                print("Prediction value: \n", predict_value[:2])
+                # print(show_result(train_prediction[:2], batch_labels[:2]))
                 print("Minibatch accuracy: %.1f%%" % accuracy(train_prediction, batch_labels))
                 print("Validation accuracy: %.1f%%" % accuracy(valid_prediction, valid_dataset["Labels"]))
 
@@ -407,8 +406,8 @@ loss_params = {
 }
 
 train_params = {
-    'learning_rate': 0.01,
-    'learning_rate_decay_step': 500,
+    'learning_rate': 0.02,
+    'learning_rate_decay_step': 100,
     'learning_rate_decay_rate': 0.9
 }
 
@@ -418,8 +417,9 @@ model_information = build_neural_network_graph(input_data=input_x, label=output_
 # run the deep learning network
 batch_size = 128
 num_steps = 3001
-log_steps = 5
+log_steps = 500
+tb_log_steps = 50
 
 train_model(model_info=model_information, train_dataset=train_dataset, valid_dataset=valid_dataset,
-            test_dataset=test_dataset, batch_size=batch_size, train_steps=num_steps, log_steps=log_steps)
-
+            test_dataset=test_dataset, batch_size=batch_size, train_steps=num_steps, log_steps=log_steps,
+            tb_log_steps=tb_log_steps)

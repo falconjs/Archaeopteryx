@@ -51,6 +51,10 @@ b = np.array([[1], [2], [3], [4]])
 "%"
 """
 
+output = "valid_dataset[%s] ~ \ntrain_dataset: \n%s" % (a, b)
+
+print(output)
+
 print("valid_dataset[%s] ~ \ntrain_dataset: \n%s" % (a, b))
 
 # Out:

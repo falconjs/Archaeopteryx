@@ -1,5 +1,5 @@
 """
-https://www.tensorflow.org/api_guides/python/state_ops
+https://www.tensorflow.org/api_docs/python/tf/Variable
 
 https://www.tensorflow.org/guide/variables
 

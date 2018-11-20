@@ -19,6 +19,9 @@ import tensorflow as tf
 from six.moves import cPickle as pickle
 import matplotlib.pyplot as plt
 
+# Config the matplotlib backend as plotting inline in IPython
+# %matplotlib inline
+
 # ==============================================================================
 # First reload the data we generated in 1_notmnist.ipynb.
 # ==============================================================================
@@ -88,9 +91,8 @@ def show_result(predictions, labels):
 
 
 # Define a fully connected layer
-def fc_layer(input_data, channels_in, channels_out, act=None, dropout_kp=None,
+def fc_layer(input_data, channels_in, channels_out, act_fun=None, dropout_kp=None,
              layer_name='Full_Connection_Layer', logs=None):
-
     with tf.name_scope(layer_name):
         # It is not a good idea to set initial value as zero
         # It will cause problem during the learning activity
@@ -104,7 +106,7 @@ def fc_layer(input_data, channels_in, channels_out, act=None, dropout_kp=None,
             # weights = tf.Variable(tf.truncated_normal([channels_in, channels_out], seed=1),
             #                       name='W')
             weights = tf.get_variable(name='Weights', shape=[channels_in, channels_out],
-                                      initializer=tf.truncated_normal_initializer())
+                                      initializer=tf.truncated_normal_initializer(stddev=0.1, seed=1))
             # The biases get initialized to zero.
             # biases = tf.Variable(tf.zeros([channels_out]), name='B')
             biases = tf.get_variable(name='Biases', shape=[channels_out],
@@ -113,31 +115,34 @@ def fc_layer(input_data, channels_in, channels_out, act=None, dropout_kp=None,
                 tf.summary.histogram("Weights", weights)
                 tf.summary.histogram("Biases", biases)
 
-        fc_conn = tf.matmul(input_data, weights)
+        fc_conn = tf.matmul(input_data, weights) + biases
+        print("full connection Layer")
 
-        if act == 'relu':
-            act = tf.nn.relu(fc_conn + biases, name='Relu')
-        else:
-            act = fc_conn + biases
+        if act_fun == 'relu':
+            fc_conn = tf.nn.relu(fc_conn, name='Relu')
+            print("act fun: ", act_fun)
+
+        result = fc_conn
 
         if (dropout_kp > 0) and (dropout_kp < 1):
-            act = tf.nn.dropout(act, keep_prob=dropout_kp, name='Dropout_Act')
+            result = tf.nn.dropout(result, keep_prob=dropout_kp, name='Dropout_Act')
+            print("dropout_kp: ", dropout_kp)
 
-        result = act
+        print("output: ", channels_out)
+        # tf.summary.scalar('output_sum', tf.reduce_sum(result))
 
-    print("output: ", channels_out)
     return result, channels_out
 
 
 # Define a Convolutional layer
-def conv2d_layer(input_x, filter, filter_num, strides, padding, act=None, dropout_kp=None,
+def conv2d_layer(input_x, filter, filter_num, strides, padding, act_fun=None, dropout_kp=None,
                  layer_name='Conv_Layer', logs=None, reshape_to=None):
     with tf.name_scope(layer_name):
         with tf.variable_scope(layer_name):
             weights = tf.get_variable(name='Weights', shape=filter + [filter_num],
-                                      initializer=tf.truncated_normal_initializer(stddev=0.1))
+                                      initializer=tf.truncated_normal_initializer(stddev=0.1, seed=1))
             biases = tf.get_variable(name='Biases', shape=[filter_num],
-                                    initializer=tf.zeros_initializer())
+                                     initializer=tf.zeros_initializer())
 
             if logs == 'Y':
                 tf.summary.histogram("Weights", weights)
@@ -145,8 +150,9 @@ def conv2d_layer(input_x, filter, filter_num, strides, padding, act=None, dropou
 
         conv_conn = tf.nn.conv2d(input_x, weights, strides=strides, padding=padding)
 
-        if act == 'relu':
+        if act_fun == 'relu':
             act = tf.nn.relu(conv_conn + biases, name='Relu')
+            print('act fun: ', act_fun)
         else:
             act = conv_conn + biases
 
@@ -154,24 +160,85 @@ def conv2d_layer(input_x, filter, filter_num, strides, padding, act=None, dropou
         shape = result.get_shape().as_list()
         channels_out = shape[1:]
 
-        print("output: ", channels_out)
+        # TODO: Log the image for hidden layer
+        if logs == 'Y':
+            with tf.name_scope('To_Image'):
+                # tensorboard logging for first 3 images
+                # image shape: [-1, image_size, image_size, num_channels]
+                split0, split1, split2, _ = tf.split(result, [1 , 1, 1, shape[3]-3], axis=3)
+                tf.summary.image('conv_out_1', split0, 3)
+                tf.summary.image('conv_out_2', split1, 3)
+                tf.summary.image('conv_out_3', split2, 3)
 
         if (dropout_kp > 0) and (dropout_kp < 1):
             result = tf.nn.dropout(result, keep_prob=dropout_kp, name='Dropout_Act')
+            print("dropout_kp: ", dropout_kp)
 
         if reshape_to == 'FC':
+            print("output: ", channels_out)
+            print("reshape to")
             shape = result.get_shape().as_list()
             # need to reshape to match the datashape from CNN to FC.
             result = tf.reshape(result, [-1, shape[1] * shape[2] * shape[3]])
             channels_out = shape[1] * shape[2] * shape[3]
 
-    print("output: ", channels_out)
+        print("output: ", channels_out)
+        # tf.summary.scalar('output_sum', tf.reduce_sum(result))
+
+    return result, channels_out
+
+
+# Define a Convolutional layer
+def pool_layer(input_x, pool_type, pool_patch, strides, padding, layer_name='pool_layer', act_fun=None,
+               dropout_kp=None, logs=None, reshape_to=None):
+    with tf.name_scope(layer_name):
+        if pool_type == 'MAX':
+            conv_conn = tf.nn.max_pool(input_x, ksize=pool_patch, strides=strides, padding=padding)
+        elif pool_type == 'AVG':
+            conv_conn = tf.nn.avg_pool(input_x, ksize=pool_patch, strides=strides, padding=padding)
+        else:
+            conv_conn = input_x
+
+        act = conv_conn
+
+        if act_fun == 'relu':
+            act = tf.nn.relu(act, name='Relu')
+            print('act fun: ', act_fun)
+
+        result = act
+        shape = result.get_shape().as_list()
+        channels_out = shape[1:]
+
+        # TODO: Log the image for hidden layer
+        if logs == 'Y':
+            with tf.name_scope('To_Image'):
+                # tensorboard logging for first 3 images
+                # image shape: [-1, image_size, image_size, num_channels]
+                split0, split1, split2, _ = tf.split(result, [1 , 1, 1, shape[3]-3], axis=3)
+                tf.summary.image('conv_out_1', split0, 3)
+                tf.summary.image('conv_out_2', split1, 3)
+                tf.summary.image('conv_out_3', split2, 3)
+
+        if (dropout_kp > 0) and (dropout_kp < 1):
+            result = tf.nn.dropout(result, keep_prob=dropout_kp, name='Dropout_Act')
+            print("dropout_kp: ", dropout_kp)
+
+        if reshape_to == 'FC':
+            print("output: ", channels_out)
+            print("reshape to")
+            shape = result.get_shape().as_list()
+            # need to reshape to match the datashape from CNN to FC.
+            result = tf.reshape(result, [-1, shape[1] * shape[2] * shape[3]])
+            channels_out = shape[1] * shape[2] * shape[3]
+
+        print("output: ", channels_out)
+        # tf.summary.scalar('output_sum', tf.reduce_sum(result))
+
     return result, channels_out
 
 
 # build the network graph
 def build_neural_network_graph(input_data, label, hidden_layers, loss, train):
-
     global layers_info_text
 
     """
@@ -199,7 +266,7 @@ def build_neural_network_graph(input_data, label, hidden_layers, loss, train):
 
         tf_beta_l2_regu = tf.constant(loss['beta_l2_regu'], name='beta_l2_regu')
 
-        with tf.name_scope('To_Image'):
+        with tf.name_scope('Input_X/To_Image'):
             # tensorboard logging for first 3 images
             # image shape: [-1, image_size, image_size, num_channels]
             tf.summary.image('input', tf_train_dataset, 3)
@@ -216,16 +283,23 @@ def build_neural_network_graph(input_data, label, hidden_layers, loss, train):
             if layer['layer_type'] == 'FC':
                 tf_data_layer, prev_size = fc_layer(tf_data_layer, prev_size, layer['node_size'],
                                                     layer_name=layer['name'],
-                                                    act=layer['act'],
+                                                    act_fun=layer['act_fun'],
                                                     dropout_kp=layer['dropout_kp'],
                                                     logs=layer['logs'])
             elif layer['layer_type'] == 'CNN':
                 tf_data_layer, prev_size = conv2d_layer(tf_data_layer, filter=layer['filter'],
-                                                     filter_num=layer['filter_num'],
-                                                     strides=layer['strides'], padding=layer['padding'],
-                                                     layer_name=layer['name'], act=layer['act'],
-                                                     dropout_kp=layer['dropout_kp'], logs=layer['logs'],
-                                                     reshape_to=layer['reshape_to'])
+                                                        filter_num=layer['filter_num'],
+                                                        strides=layer['strides'], padding=layer['padding'],
+                                                        layer_name=layer['name'], act_fun=layer['act_fun'],
+                                                        dropout_kp=layer['dropout_kp'], logs=layer['logs'],
+                                                        reshape_to=layer['reshape_to'])
+            elif layer['layer_type'] == 'POOL':
+                tf_data_layer, prev_size = pool_layer(tf_data_layer, pool_type=layer['pool_type'],
+                                                      pool_patch=layer['pool_patch'],
+                                                      strides=layer['strides'], padding=layer['padding'],
+                                                      layer_name=layer['name'], act_fun=layer['act_fun'],
+                                                      dropout_kp=layer['dropout_kp'], logs=layer['logs'],
+                                                      reshape_to=layer['reshape_to'])
             else:
                 print("Error: Unknown Type [%s] of Layer No %d" % (layer['type'], index))
 
@@ -251,7 +325,6 @@ def build_neural_network_graph(input_data, label, hidden_layers, loss, train):
                           name='total_loss')
 
             tf.summary.scalar('total_loss', loss)
-            # tf.summary.scalar('beta_l2_regu', tf_beta_l2_regu)
             tf.summary.scalar('l2_loss', l2_loss)
 
         # Optimizer.
@@ -260,7 +333,7 @@ def build_neural_network_graph(input_data, label, hidden_layers, loss, train):
             learning_rate = tf.train.exponential_decay(train['learning_rate'],
                                                        global_step,
                                                        train['learning_rate_decay_step'],
-                                                       train['learning_rate_decay_rate'],staircase=True)
+                                                       train['learning_rate_decay_rate'], staircase=True)
             optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss, global_step=global_step)
             # tf.summary.scalar('global_step', global_step)
             tf.summary.scalar('learning_rate', learning_rate)
@@ -286,7 +359,8 @@ def build_neural_network_graph(input_data, label, hidden_layers, loss, train):
     return info
 
 
-def train_model(model_info, train_dataset, valid_dataset, test_dataset, batch_size, train_steps, log_steps):
+def train_model(model_info, train_dataset, valid_dataset, test_dataset, batch_size, train_steps,
+                log_steps, tb_log_steps):
     """
         Initializes and runs the tensor's graph
     """
@@ -298,7 +372,7 @@ def train_model(model_info, train_dataset, valid_dataset, test_dataset, batch_si
         print("Initialized")
 
         # Make the tensorboard log writer
-        session_log_dir = "logs/3_4/" + layers_info_text + "/" + dt.today().strftime('%m%d_%H%M')
+        session_log_dir = "logs/4_1/" + layers_info_text + "/" + dt.today().strftime('%m%d_%H%M')
         writer = tf.summary.FileWriter(session_log_dir)
         print("Logging Directory : %s" % session_log_dir)
 
@@ -323,9 +397,6 @@ def train_model(model_info, train_dataset, valid_dataset, test_dataset, batch_si
             # Note: we could use better randomization across epochs.
             offset = (step * batch_size) % (train_dataset["Input_X"].shape[0] - batch_size)
 
-            # focus on the 5 data batch to get overfitting case.
-            # offset = batch_size * (step % 5)
-
             # Generate a minibatch.
             batch_data = train_dataset["Input_X"][offset:(offset + batch_size), :]
             batch_labels = train_dataset["Labels"][offset:(offset + batch_size), :]
@@ -338,17 +409,16 @@ def train_model(model_info, train_dataset, valid_dataset, test_dataset, batch_si
             # and the value is the numpy array to feed to it.
 
             train_feed_dict = {tf_train_dataset: batch_data,
-                               tf_train_labels: batch_labels,
-                               }
+                               tf_train_labels: batch_labels}
 
-            if step % log_steps == 0:
+            if step % tb_log_steps == 0:
                 s = session.run(merged_summary, feed_dict=train_feed_dict)
                 writer.add_summary(s, step)
 
             targets = [model_info["OPTIMIZER"], model_info["LOSS"], model_info["PREDICTION"]]
             _, l, train_prediction = session.run(targets, feed_dict=train_feed_dict)
 
-            if step % 500 == 0:
+            if step % log_steps == 0:
                 # Predictions for the validation, and test data.
                 valid_prediction = session.run(model_info["PREDICTION"], feed_dict=valid_feed_dict)
                 print("Minibatch loss at step %d: %f" % (step, l))
@@ -397,13 +467,13 @@ label_y = {
 
 # build the deep learning network
 hidden_1 = {
-    'name': 'Conn_hidden_1',
+    'name': '1_Conv',
     'layer_type': 'CNN',
     'filter_num': 16,
     'filter': [5, 5, 1],
-    'strides': [1, 2, 2, 1],
+    'strides': [1, 1, 1, 1],
     'padding': 'SAME',
-    'act': 'relu',
+    'act_fun': None,
     'dropout_kp': 1,
     'L2_regularization': 'N',
     'logs': 'Y',
@@ -411,34 +481,62 @@ hidden_1 = {
 }
 
 hidden_2 = {
-    'name': 'Conn_hidden_2',
+    'name': '2_Max_Pool',
+    'layer_type': 'POOL',
+    'pool_type': 'MAX',
+    'pool_patch': [1, 5, 5, 1],
+    'strides': [1, 2, 2, 1],
+    'padding': 'SAME',
+    'act_fun': 'relu',
+    'dropout_kp': 1,
+    'L2_regularization': 'N',
+    'logs': 'Y',
+    'reshape_to': None
+}
+
+hidden_3 = {
+    'name': '3_Conv',
     'layer_type': 'CNN',
     'filter_num': 16,
     'filter': [5, 5, 16],
+    'strides': [1, 1, 1, 1],
+    'padding': 'SAME',
+    'act_fun': None,
+    'dropout_kp': 1,
+    'L2_regularization': 'N',
+    'logs': 'Y',
+    'reshape_to': None
+}
+
+hidden_4 = {
+    'name': '4_Max_Pool',
+    'layer_type': 'POOL',
+    'pool_type': 'MAX',
+    'pool_patch': [1, 5, 5, 1],
     'strides': [1, 2, 2, 1],
     'padding': 'SAME',
-    'act': 'relu',
+    'act_fun': 'relu',
     'dropout_kp': 1,
     'L2_regularization': 'N',
     'logs': 'Y',
     'reshape_to': 'FC'
 }
 
-hidden_3 = {
-    'name': 'FC_hidden_3',
+hidden_5 = {
+    'name': '5_FC_hidden',
     'layer_type': 'FC',
     'node_size': 64,
-    'act': 'relu',
+    'act_fun': 'relu',
     'dropout_kp': 1,
     'L2_regularization': 'N',
-    'logs': 'Y'
+    'logs': 'N'
 }
 
 output_y = {
-    'name': 'FC_conn_output',
+    'name': '6_FC_output',
     'layer_type': 'FC',
     'node_size': num_labels,
-    'act': None,
+    'act_fun': None,
     'dropout_kp': 1,
     'L2_regularization': 'N',
     'logs': 'N'
@@ -448,6 +546,8 @@ layer_design = [
     hidden_1,
     hidden_2,
     hidden_3,
+    hidden_4,
+    hidden_5,
     output_y
 ]
 
@@ -456,19 +556,21 @@ loss_params = {
 }
 
 train_params = {
-    'learning_rate': 0.01,
-    'learning_rate_decay_step': 500,
-    'learning_rate_decay_rate': 0.9
+    'learning_rate': 0.05,
+    'learning_rate_decay_step': 10000,
+    'learning_rate_decay_rate': 1
 }
 
 model_information = build_neural_network_graph(input_data=input_x, label=output_y, hidden_layers=layer_design,
                                                loss=loss_params, train=train_params)
 
 # run the deep learning network
-batch_size = 128
-num_steps = 3001
-log_steps = 5
+batch_size = 16
+num_steps = 101
+log_steps = 50
+tb_log_steps = 5
 
-# train_model(model_info=model_information, train_dataset=train_dataset, valid_dataset=valid_dataset,
-#             test_dataset=test_dataset, batch_size=batch_size, train_steps=num_steps, log_steps=log_steps)
+train_model(model_info=model_information, train_dataset=train_dataset, valid_dataset=valid_dataset,
+            test_dataset=test_dataset, batch_size=batch_size, train_steps=num_steps, log_steps=log_steps,
+            tb_log_steps=tb_log_steps)
 
