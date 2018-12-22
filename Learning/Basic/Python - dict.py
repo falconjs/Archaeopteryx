@@ -32,6 +32,7 @@ print("dict['Age']: ", dict['Age'])
 
 dict.keys()
 # dict_keys(['Name', 'Age', 'Class'])
+list(dict.keys())
 
 dict.values()
 # dict_values(['Zara', 7, 'First'])
@@ -39,7 +40,7 @@ dict.values()
 dict.items()
 # dict_items([('Name', 'Zara'), ('Age', 7), ('Class', 'First')])
 
-dict[['Name','Class']]
+dict[['Name', 'Class']]
 # TypeError: unhashable type: 'list
 
 pd.DataFrame.from_dict(dict, orient='index')
@@ -48,3 +49,26 @@ pd.DataFrame.from_dict(dict, orient='index')
 # Name    Zara
 # Age        7
 # Class  First
+
+df = pd.DataFrame({'col1': [1, 2],
+                   'col2': [0.5, 0.75]},
+                  index=['a', 'b'])
+
+#    col1  col2
+# a     1  0.50
+# b     2  0.75
+
+df.to_dict()
+# {'col1': {'a': 1,
+#           'b': 2},
+#  'col2': {'a': 0.5,
+#           'b': 0.75}}
+
+# all return a dictionary equal to {"one": 1, "two": 2, "three": 3}:
+a = dict(one=1, two=2, three=3)
+b = {'one': 1, 'two': 2, 'three': 3}
+c = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
+d = dict([('two', 2), ('one', 1), ('three', 3)])
+e = dict({'three': 3, 'one': 1, 'two': 2})
+
+a == b == c == d == e

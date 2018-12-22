@@ -31,6 +31,7 @@ b.argsort()
 #        [0, 1, 2]], dtype=int64)
 
 # array[start:before end:step]
+a = np.array([1,3,5,2,4,6], int)
 
 a[0:]
 # array([1, 3, 5, 2, 4, 6])
@@ -52,9 +53,13 @@ a[:-1]
 # array([1, 3, 5, 2, 4])
 
 
-# array[<start point>::<step>]
-a[0::]
+# array[<start point>:<end point>+1:<step>]
+a[0:6:]
 # array([1, 3, 5, 2, 4, 6])
+
+a[0:6:3]
+# array([1, 2])
+
 a[3::]
 # array([2, 4, 6])
 a[-1::]
@@ -75,6 +80,10 @@ X[0]
 
 X[:,0]
 # array([1., 4., 7.])
+
+X[1:3, 1:3]
+# array([[5., 6.],
+#        [8., 9.]])
 
 # ================= Search, index, position ==================
 

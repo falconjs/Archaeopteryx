@@ -34,3 +34,4 @@ logistic_reg.fit(X_dataset, y_dataset)
 # ValueError: bad input shape (9, 3)
 # y : array-like, shape (n_samples,)
 
+logistic_reg.coef_()
