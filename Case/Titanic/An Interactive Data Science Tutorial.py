@@ -15,8 +15,9 @@ from sklearn.svm import SVC, LinearSVC
 from sklearn.ensemble import RandomForestClassifier , GradientBoostingClassifier
 
 # Modelling Helpers
-from sklearn.preprocessing import Imputer , Normalizer , scale
-from sklearn.cross_validation import train_test_split , StratifiedKFold
+from sklearn.preprocessing import Imputer, Normalizer, scale
+# from sklearn.cross_validation import train_test_split , StratifiedKFold
+from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.feature_selection import RFECV
 
 # Visualisation
