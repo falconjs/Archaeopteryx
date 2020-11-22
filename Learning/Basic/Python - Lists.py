@@ -83,6 +83,11 @@ mylist = [1, 4, -5, 10, -7, 2, 3, -1]
 [n for n in mylist if n < 0]
 # [-5, -7, -1]
 
+mylist = ['PRIMARY_PARENT_VOD__R.NAME', 'PRIMARY_PARENT_VOD__R.ID']
+[n for n in mylist if n.startswith('PRIMARY_PARENT_VOD__R.')]
+len([n for n in mylist if n == 'PRIMARY_PARENT_VOD__R.'])
+
+
 # One potential downside of using a list comprehension is that it might produce a large result
 # if the original input is large. If this is a concern, you can use generator expressions to
 # produce the filtered values iteratively. For example:
@@ -141,3 +146,6 @@ a.append(10)
 
 # 移除列表中的一个元素（默认最后一个元素），并且返回该元素的值
 a.pop(10)
+
+
+

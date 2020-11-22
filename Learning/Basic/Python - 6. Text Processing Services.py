@@ -67,3 +67,10 @@ text_ser.str.extract(
 # 1      Myles  Thomas Francis
 # 2       Wirz          Albert
 # 3   Hirvonen       Alexander   (Helga E Lindqvist)
+
+
+"""
+List print to string
+"""
+alist = [0,1,2,3,4,5,6,7,8,9]
+str(alist)
