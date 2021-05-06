@@ -109,7 +109,4 @@ ENV/
 /Learning/TensorFlow/logs/
 /Udacity/logs/
 
-# Data
-Data/
-
 # Ended

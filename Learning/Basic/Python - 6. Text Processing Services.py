@@ -18,6 +18,17 @@ str1 = "%d_number" % (10)
 str2 = '{:,}'.format(1234567890)
 # str2 = '1,234,567,890'
 
+s = """
+select id 
+from table_a 
+WHere a = 1
+"""
+
+# start = s.find('where') + 3
+end = s.lower().find('where', 0)
+# s[start:end]
+
+s[0:end]
 
 """
 https://docs.python.org/3.6/library/re.html

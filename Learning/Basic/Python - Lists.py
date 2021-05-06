@@ -148,4 +148,11 @@ a.append(10)
 a.pop(10)
 
 
+a = [
+    ["abc1", "ccc1", "bdc1"],
+    ["abc2", "ccc2", "bdc2"],
+    ["abc3", "ccc3", "bdc3"],
+]
+
+a[1][1]
 
