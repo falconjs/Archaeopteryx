@@ -91,5 +91,5 @@ conf_paths = ["./conf/base", "./conf/local"]
 conf_loader = configparser.ConfigParser()
 file_list = [i + '/example.ini' for i in conf_paths]
 conf_loader.read(file_list)
-conf_loader['bitbucket.org']['useraa']
-conf_loader.get('bitbucket.org', 'useraa')
+conf_loader['bitbucket.org']['user']
+conf_loader.get('bitbucket.org', 'user')

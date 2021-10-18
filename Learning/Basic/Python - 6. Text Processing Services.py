@@ -85,3 +85,12 @@ List print to string
 """
 alist = [0,1,2,3,4,5,6,7,8,9]
 str(alist)
+
+
+"""
+String Split
+"""
+a = """
+AAA
+"""
+str_lt = str(a).split('---')

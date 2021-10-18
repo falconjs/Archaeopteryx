@@ -738,6 +738,13 @@ test_df = pd.read_csv(
         'cons_gas_12m': 'str'
     }
 )
+
+test_df = pd.read_csv(
+    'Data/raw/ml_case_feature_data.csv',
+    keep_default_na=False,
+    dtype=str
+)
+
 # test_df = pd.read_csv('Data/raw/ml_case_feature_data.csv')
 
 """

@@ -74,3 +74,9 @@ print('{1} 和 {0}'.format('Google', 'Runoob'))
 print('站点列表 {0}, {1}, 和 {other}。'.format('Google', 'Runoob', other='Taobao'))
 # 站点列表 Google, Runoob, 和 Taobao。
 
+clause = """
+abc
+bdc
+adc
+"""
+print(f'SQL statement :\n {clause}')
