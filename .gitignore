@@ -105,6 +105,9 @@ ENV/
 .idea/*.*
 /input/
 
+# VSCode
+.vscode/
+
 # Tensorboard logs
 /Learning/TensorFlow/logs/
 /Udacity/logs/
