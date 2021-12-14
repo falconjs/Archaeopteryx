@@ -1,7 +1,5 @@
-jupyter
-numpy
 pandas
-seaborn
-pytest
 scikit-learn
-scipy
+numpy
+matplotlib
+seaborn
