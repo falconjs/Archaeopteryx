@@ -3,3 +3,10 @@ scikit-learn
 numpy
 matplotlib
 seaborn
+jupyter
+lightgbm
+xgboost
+shap
+scikit-optimize
+boto3
+sshtunnel
