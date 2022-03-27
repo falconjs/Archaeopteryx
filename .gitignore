@@ -124,6 +124,9 @@ ENV/
 /Learning/TensorFlow/logs/
 /Udacity/logs/
 
+# DS_Store
+*.DS_Store
+
 # ignore potentially sensitive credentials files
 config/**/*confidential*
 config/confidential/*.*
