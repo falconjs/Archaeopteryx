@@ -1,2 +1,12 @@
 numpy==1.20.3
 pandas==1.2.4
+scikit-learn
+matplotlib
+seaborn
+jupyter
+lightgbm
+xgboost
+shap
+scikit-optimize
+boto3
+sshtunnel

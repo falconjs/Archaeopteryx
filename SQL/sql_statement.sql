@@ -1,0 +1,22 @@
+--select
+--    acapalc.`Account__c`,
+--    acapalc.`Adoption_Ladder_Score__c`,
+--    acapalc.`Concerns_safety__c`,
+--    acapalc.`Confirm_KOLS_c__c`,
+--    acapalc.`CurrencyIsoCode`,
+--    acapalc.`Decision_Tree_Barriers__c`,
+--    acapalc.`Decision_Tree_QA__c`,
+--    acapalc.`Id`,
+--    acapalc.`IsDeleted`,
+--    acapalc.`Mobile_ID_vod__c`,
+--    acapalc.`Name`,
+--    acapalc.`Products_vod__c`,
+--    acapalc.`Profiled_By_Adoption_Ladder__c`,
+--    acapalc.`Profiled_Date_Adoption_Ladder__c`,
+--    acapalc.`SystemModstamp`,
+--    acapalc.`Trial_safety__c`,
+--    acapalc.`Unaware_value__c`
+--from
+--    `Amgen_CN_AMG_Product_Adoption_Ladder__c` acapalc;
+--
+--select id, name from amgen.align_Accounts_China;

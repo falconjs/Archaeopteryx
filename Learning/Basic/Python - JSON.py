@@ -67,3 +67,30 @@ building_info_dic2 = json.load(open(filename, 'r'))
 #Use the new datastore datastructure
 building_info_dic2["parking"]["style"]
 
+
+# Convert JSON String to dict
+
+str = r"""
+{
+    "version": "2.0",
+    "routeKey": "POST /sgm/demo/xgboost",
+    "headers": {
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+    },
+    "body": "{\"data\":\"1,2,3\"}"
+}
+"""
+
+data = json.loads(str)
+str2 = data['body']
+data2 = json.loads(str2)
+
+import json
+test_string = '''
+{
+  "account_id": "str", 
+  "account_isdeleted": "str"
+}
+'''
+dict_ = json.loads(test_string)

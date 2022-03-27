@@ -55,6 +55,68 @@ ser.astype('str')
 # to category
 ser.astype('category')
 
+# Example 1: The Data type of the column is changed to “str” object.
+# importing the pandas library
+
+import pandas as pd
+
+# creating a DataFrame
+df = pd.DataFrame({'srNo': [1, 2, 3],
+                   'Name': ['Geeks', 'for', 'Geeks'],
+                   'id': [111, 222, 333]
+                   })
+
+# show the datatypes
+print(df.dtypes)
+
+# changing the dataframe
+# data types to string
+df = df.astype(str)
+
+# show the data types
+# of dataframe
+df.dtypes
+
+# Out[4]:
+# srNo    object
+# Name    object
+# id      object
+# dtype: object
+
+# Example 2: Now, let us change the data type of the “id” column from “int” to “str”.
+# We create a dictionary and specify the column name with the desired data type.
+
+# Option 1
+# creating a dictionary
+# with column name and data type
+data_types_dict = {'id': str}
+
+# we will change the data type
+# of id column to str by giving
+# the dict to the astype method
+df = df.astype(data_types_dict)
+
+# checking the data types
+# using df.dtypes method
+df.dtypes
+
+# option 2
+# convert the column id to int
+# raise error when can't convert to target type.
+# Option 3 can handle can't convert case ???
+df.id = df.id.astype(int)
+
+# option 3
+# Using Dataframe.apply() method.
+# We can pass pandas.to_numeric, pandas.to_datetime and pandas.to_timedelta as argument
+# to apply() function to change the datatype of one or more columns to numeric,
+# datetime and timedelta respectively.
+df[['id']] = df[['id']].apply(pd.to_numeric)
+
+# show the data types
+# of all columns
+df.dtypes
+
 # ------------------------------------------------------------------------------------------
 # Computations / Descriptive Stats
 # ------------------------------------------------------------------------------------------
@@ -539,33 +601,41 @@ gp2 : index([1,4,5])
 
 """
 
-df1 = pd.DataFrame([['a', 1, 'x'],
-                    ['b', 2, 'x'],
-                    ['a', 3, 'y'],
-                    ['a', 4, 'y'],
-                    ['b', 5, 'x'],
-                    ['b', 6, 'y']],
-                   columns=['letter', 'number', 'letter_2'])
+df1 = pd.DataFrame([['a', 1, 20, 'x'],
+                    ['b', 2, 30, 'x'],
+                    ['a', 3, 20, 'y'],
+                    ['a', 4, 30, 'y'],
+                    ['b', 5, 20, 'x'],
+                    ['b', 6, 30, 'y']],
+                   columns=['letter', 'number', 'number2', 'letter_2'])
 
 df1_gp = df1.groupby('letter')
 
 df1_gp.mean()
-#           number
+#           number    number2
 # letter
-# a       2.666667
-# b       4.333333
+# a       2.666667  23.333333
+# b       4.333333  26.666667
 
 df1.groupby('letter', as_index=False).mean()
 # as dataframe
-#   letter    number
-# 0      a  2.666667
-# 1      b  4.333333
+#   letter    number    number2
+# 0      a  2.666667  23.333333
+# 1      b  4.333333  26.666667
 
 df1.groupby(['letter'], as_index=False).agg(['mean', 'count'])
-#             mean count
+#           number          number2
+#             mean count       mean count
 # letter
-# a       2.666667     3
-# b       4.333333     3
+# a       2.666667     3  23.333333     3
+# b       4.333333     3  26.666667     3
+
+df1.groupby(['letter'], as_index=False).agg({'number':['mean', 'count'], 'number2':['max']})
+#   letter    number       number2
+#               mean count     max
+# 0      a  2.666667     3      30
+# 1      b  4.333333     3      30
+
 
 # ------------------------------------------------------------------------------------------
 # Missing data handling
@@ -656,3 +726,93 @@ df1.pivot_table(values='number', index='letter', columns='letter_2', aggfunc=np.
 # letter
 # a         5   3
 # b         2  11
+
+
+# dataframe IO
+import pandas as pd
+test_df = pd.read_csv(
+    'Data/raw/ml_case_feature_data.csv',
+    keep_default_na=False,
+    dtype={
+        'cons_12m': 'str',
+        'cons_gas_12m': 'str'
+    }
+)
+
+test_df = pd.read_csv(
+    'Data/raw/ml_case_feature_data.csv',
+    keep_default_na=False,
+    dtype=str
+)
+
+# test_df = pd.read_csv('Data/raw/ml_case_feature_data.csv')
+
+"""
+DataFrame.cut
+"""
+
+df1 = {
+'Name': ['George', 'Andrea', 'micheal', 'maggie', 'Ravi', 'Xien', 'Jalpa', 'Tyieren'],
+'Score': [63, 48, 56, 75, 32, 77, 85, 22]
+}
+df1 = pd.DataFrame(df1,columns=['Name','Score'])
+print(df1)
+
+bins = [0, 25, 50, 75, 100]
+labels =[1,2,3,4]
+df1['binned'] = pd.cut(df1['Score'], bins)
+df1['binned_labeled'] = pd.cut(df1['Score'], bins,labels=labels)
+print (df1)
+
+#       Name  Score     binned binned_labeled
+# 0   George     63   (50, 75]              3
+# 1   Andrea     48   (25, 50]              2
+# 2  micheal     56   (50, 75]              3
+# 3   maggie     75   (50, 75]              3
+# 4     Ravi     32   (25, 50]              2
+# 5     Xien     77  (75, 100]              4
+# 6    Jalpa     85  (75, 100]              4
+# 7  Tyieren     22    (0, 25]              1
+
+df1['lambda_x'] = df1['Score'].apply(lambda x: np.NaN if x < 60 else x)
+
+#       Name  Score     binned binned_labeled  lambda_x
+# 0   George     63   (50, 75]              3      63.0
+# 1   Andrea     48   (25, 50]              2       NaN
+# 2  micheal     56   (50, 75]              3       NaN
+# 3   maggie     75   (50, 75]              3      75.0
+# 4     Ravi     32   (25, 50]              2       NaN
+# 5     Xien     77  (75, 100]              4      77.0
+# 6    Jalpa     85  (75, 100]              4      85.0
+# 7  Tyieren     22    (0, 25]              1       NaN
+
+df1.isna()
+df1.apply(pd.Series.value_counts)
+
+# Cross Rows Calculation
+
+# importing pandas as pd
+import pandas as pd
+
+# Creating row index values for our data frame
+# We have taken time frequency to be of 12 hours interval
+# We are generating five index value using "period = 5" parameter
+
+ind = pd.date_range('01 / 01 / 2000', periods=5, freq='12H')
+
+# Creating a dataframe with 4 columns
+# using "ind" as the index for our dataframe
+df = pd.DataFrame({"A": [1, 2, 3, 4, 5],
+                   "B": [10, 20, 30, 40, 50],
+                   "C": [11, 22, 33, 44, 55],
+                   "D": [12, 24, 51, 36, 2]},
+                  index=ind)
+
+# Print the dataframe
+df.shift(1)
+#                        A     B     C     D
+# 2000-01-01 00:00:00  NaN   NaN   NaN   NaN
+# 2000-01-01 12:00:00  1.0  10.0  11.0  12.0
+# 2000-01-02 00:00:00  2.0  20.0  22.0  24.0
+# 2000-01-02 12:00:00  3.0  30.0  33.0  51.0
+# 2000-01-03 00:00:00  4.0  40.0  44.0  36.0

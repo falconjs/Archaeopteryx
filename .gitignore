@@ -105,11 +105,47 @@ ENV/
 .idea/*.*
 /input/
 
+# vscode
+.vscode/
+.vscode/*.*
+
+### macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+.Trashes
+
+# Vim
+*~
+.*.swo
+.*.swp
+
 # Tensorboard logs
 /Learning/TensorFlow/logs/
 /Udacity/logs/
 
 # DS_Store
 *.DS_Store
+
+# ignore potentially sensitive credentials files
+config/**/*confidential*
+config/confidential/*.*
+!config/confidential/
+
+# ignore local config files
+config/**/local/**
+!config/**/local/
+
+# ignore every file in the following folders
+Data/**/*.*
+
+# ignore everything but level 1 subfolder in the following folders
+logs/**
+!logs/*/
+
+# also keep all .gitkeep files
+!.gitkeep
+
+**/*.bak
 
 # Ended

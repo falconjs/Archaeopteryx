@@ -18,6 +18,17 @@ str1 = "%d_number" % (10)
 str2 = '{:,}'.format(1234567890)
 # str2 = '1,234,567,890'
 
+s = """
+select id 
+from table_a 
+WHere a = 1
+"""
+
+# start = s.find('where') + 3
+end = s.lower().find('where', 0)
+# s[start:end]
+
+s[0:end]
 
 """
 https://docs.python.org/3.6/library/re.html
@@ -67,3 +78,19 @@ text_ser.str.extract(
 # 1      Myles  Thomas Francis
 # 2       Wirz          Albert
 # 3   Hirvonen       Alexander   (Helga E Lindqvist)
+
+
+"""
+List print to string
+"""
+alist = [0,1,2,3,4,5,6,7,8,9]
+str(alist)
+
+
+"""
+String Split
+"""
+a = """
+AAA
+"""
+str_lt = str(a).split('---')

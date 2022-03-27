@@ -24,7 +24,10 @@ with open('example.ini', 'w') as configfile:
 """
 configparser reader
 """
-config = configparser.ConfigParser()
+config = configparser.ConfigParser(
+    delimiters=('=',':'),
+    comment_prefixes=('#') # remove ;
+)
 config.sections()
 # []
 
@@ -32,8 +35,6 @@ config.read('example.ini')
 # ['example.ini']
 
 config.read('./Learning/Basic/example.ini')
-
-
 config.sections()
 # ['bitbucket.org', 'topsecret.server.com']
 
@@ -51,6 +52,19 @@ config['bitbucket.org']['User']
 
 config['DEFAULT']['Compression']
 # 'yes'
+
+config['bitbucket.org']['ForwardX11']
+# 'yes'
+
+config['b1_00_cn_mcm_account']['load_args']
+config['b1_00_cn_mcm_account']['sep']
+config['b1_00_cn_mcm_account']['dtype']
+
+import json
+table = json.loads(config['b1_00_cn_mcm_account']['dtype'])
+
+config['DEFAULT']['compressionlevel']
+config.getint('DEFAULT', 'compressionlevel')
 
 topsecret = config['topsecret.server.com']
 
@@ -71,5 +85,11 @@ for key in config['bitbucket.org']:
 # compression
 # forwardx11
 
-config['bitbucket.org']['ForwardX11']
-# 'yes'
+# Read from Different config for the same variable
+# Keep the last one
+conf_paths = ["./conf/base", "./conf/local"]
+conf_loader = configparser.ConfigParser()
+file_list = [i + '/example.ini' for i in conf_paths]
+conf_loader.read(file_list)
+conf_loader['bitbucket.org']['user']
+conf_loader.get('bitbucket.org', 'user')

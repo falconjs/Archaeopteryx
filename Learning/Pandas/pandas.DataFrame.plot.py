@@ -4,6 +4,7 @@ https://pandas.pydata.org/pandas-docs/stable/api.html#api-dataframe-plotting
 """
 
 import pandas as pd
+import matplotlib.pyplot as plt
 import seaborn as sns
 
 df = pd.DataFrame(columns=["App", "Feature1", "Feature2", "Feature3",
@@ -53,3 +54,6 @@ df.set_index('App').T
 # Feature8    0    0    0    1    0    0    0    0
 
 df.set_index('App').T.plot(kind='bar', stacked=True)
+
+df.hist(figsize=(5,5))
+# plt.show()
