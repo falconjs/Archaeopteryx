@@ -24,7 +24,6 @@ data['d'] = np.abs(data['d']) * 100
 plt.scatter('a', 'b', c='c', s='d', data=data)
 
 plt.axis([0, 50, 0, 50])
-
 plt.plot()
-
+plt.grid(True)
 plt.show()

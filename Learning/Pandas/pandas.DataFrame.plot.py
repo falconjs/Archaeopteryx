@@ -26,17 +26,17 @@ df = pd.DataFrame(columns=["App", "Feature1", "Feature2", "Feature3",
 """
 kind : str
 
-‘line’ : line plot (default)
-‘bar’ : vertical bar plot
-‘barh’ : horizontal bar plot
-‘hist’ : histogram
-‘box’ : boxplot
-‘kde’ : Kernel Density Estimation plot
-‘density’ : same as ‘kde’
-‘area’ : area plot
-‘pie’ : pie plot
-‘scatter’ : scatter plot
-‘hexbin’ : hexbin plot
+'line' : line plot (default)
+'bar' : vertical bar plot
+'barh' : horizontal bar plot
+'hist' : histogram
+'box' : boxplot
+'kde' : Kernel Density Estimation plot
+'density' : same as 'kde'
+'area' : area plot
+'pie' : pie plot
+'scatter' : scatter plot
+'hexbin' : hexbin plot
 """
 
 # Set color and style
@@ -53,7 +53,43 @@ df.set_index('App').T
 # Feature7    1    1    1    1    0    1    1    1
 # Feature8    0    0    0    1    0    0    0    0
 
-df.set_index('App').T.plot(kind='bar', stacked=True)
+# df.set_index('App').T.plot(kind='bar', stacked=True)
 
-df.hist(figsize=(5,5))
-# plt.show()
+ax = df.hist(by='Feature1', column='Feature3', figsize=(5,5), grid=True)
+
+for i,x in enumerate(ax):
+      # Set Title
+      x.set_title("title", weight='bold', size=20, pad=50)
+
+      # Set x-axis label
+      x.set_xlabel("xlabel", labelpad=20, weight='bold', size=12)
+
+      # Set y-axis label
+      if i == 0:
+            x.set_ylabel("Sessions", labelpad=50, weight='bold', size=12)
+
+      x.legend(
+            labels = ('Cosine Function', 'Sine Function'), 
+            loc = 'upper left'
+      )
+
+      # Despine
+      x.spines['right'].set_visible(False)
+      x.spines['top'].set_visible(False)
+      x.spines['left'].set_visible(False)
+
+      # Switch off ticks
+      x.tick_params(axis="both", which="both", bottom="off", top="off", labelbottom="on", left="off", right="off", labelleft="on")
+
+      # Draw horizontal axis lines
+      vals = x.get_yticks()
+      for tick in vals:
+            x.axhline(y=tick, linestyle='dashed', alpha=0.4, color='#eeeeee', zorder=1)
+
+
+      # Format y-axis label
+      #     x.yaxis.set_major_formatter(StrMethodFormatter('{x:,g}'))
+
+      x.tick_params(axis='x', rotation=0)
+
+plt.show()
