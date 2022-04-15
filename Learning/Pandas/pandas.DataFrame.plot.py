@@ -59,7 +59,7 @@ ax = df.hist(by='Feature1', column='Feature3', figsize=(5,5), grid=True)
 
 for i,x in enumerate(ax):
       # Set Title
-      x.set_title("title", weight='bold', size=20, pad=50)
+      x.set_title("title", weight='bold', size=20, pad=20)
 
       # Set x-axis label
       x.set_xlabel("xlabel", labelpad=20, weight='bold', size=12)

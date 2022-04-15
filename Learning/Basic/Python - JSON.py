@@ -61,12 +61,12 @@ with open(filename, 'w') as f:
     json.dump(building_info, f)
 
 # Reading JSON
-
-building_info_dic2 = json.load(open(filename, 'r'))
-
-#Use the new datastore datastructure
-building_info_dic2["parking"]["style"]
-
+try: 
+  building_info_dic2 = json.load(open(filename, 'r'))
+  #Use the new datastore datastructure
+  building_info_dic2["parking"]["style"]
+except FileNotFoundError:
+    print(f'File is not available : {filename}')
 
 # Convert JSON String to dict
 
@@ -94,3 +94,4 @@ test_string = '''
 }
 '''
 dict_ = json.loads(test_string)
+

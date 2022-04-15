@@ -45,6 +45,18 @@ m = re.search('\. (?P<Given_Name>[ A-Za-z]*)(?P<S_Name>$| \(.*\))', 'Wilkes, Mrs
 m.group()
 # . James (Ellen Needs)
 
+m = re.match(r'^<([^:]+):([^:]+):([^:]+)>$', "<json:confidential/secretsmanager/DataEngine_DB:>")
+# >>> m.group
+# <built-in method group of re.Match object at 0x000001C0D723BA30>
+# >>> m.group(0)
+# '<json:confidential/secretsmanager/DataEngine_DB:password>'
+# >>> m.group(1) 
+# 'json'
+# >>> m.group(2) 
+# 'confidential/secretsmanager/DataEngine_DB'
+# >>> m.group(3) 
+# 'password'
+
 text_ser = pd.Series(['Wilkes, Mrs. James (Ellen Needs)',
                       'Myles, Mr. Thomas Francis',
                       'Kink-Heilmann, Mrs. Anton (Luise Heilmann)',
