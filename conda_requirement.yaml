@@ -1,0 +1,18 @@
+name: datascience_py39
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - boto3
+  - jupyter
+  - numpy
+  - pandas=1.4.2
+  - scikit-learn=1.0.2
+  - seaborn
+  - statsmodels
+  - xgboost
+  - matplotlib
+  - lightgbm
+  - shap
+  - scikit-optimize
+  - sshtunnel
