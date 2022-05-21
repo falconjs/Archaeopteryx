@@ -93,3 +93,36 @@ for i,x in enumerate(ax):
       x.tick_params(axis='x', rotation=0)
 
 plt.show()
+
+
+"""
+ax = df_sell_detail['sales_yearmonth'].sort_values().value_counts(sort=False).plot(kind='bar', figsize = (15,5))
+# df_sell_detail.hist(column='sales_yearmonth')
+
+x = ax
+
+# Despine
+x.spines['right'].set_visible(False)
+x.spines['top'].set_visible(False)
+x.spines['left'].set_visible(False)
+
+# Switch off ticks
+x.tick_params(axis="both", which="both", bottom="off", top="off", labelbottom="on", left="off", right="off", labelleft="on")
+
+# Draw horizontal axis lines
+vals = x.get_yticks()
+for tick in vals:
+    x.axhline(y=tick, linestyle='dashed', alpha=0.4, color='#eeeeee', zorder=1)
+
+# Remove title
+x.set_title("")
+
+# Set x-axis label
+x.set_xlabel("Sales Year Month", labelpad=20, weight='bold', size=12)
+
+# Set y-axis label
+x.set_ylabel("Sales Records", labelpad=20, weight='bold', size=12)
+
+# Format y-axis label
+# x.yaxis.set_major_formatter(StrMethodFormatter('{x:,g}'))
+"""
