@@ -4,6 +4,7 @@ http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Index.html
 """
 
 import pandas as pd
+import numpy as np
 
 pd_idx = pd.Index([1, 2, 3])
 # Int64Index([1, 2, 3], dtype='int64')
@@ -12,7 +13,7 @@ pd_idx = pd.Index([1, 2, 3])
 pd_idx.delete(0)
 
 # how to convert an index of data frame to a column?
-# pd_idx.reset_index(level=0, inplace=True)
+# ???
 
 # so, if you have a multi-index frame with 3 levels of index, like:
 # >>> df
@@ -30,3 +31,9 @@ pd_idx.delete(0)
 # A   2016-02-27    2  0.5577
 # C   2016-02-28    6  0.0303
 #
+
+df2 = pd.DataFrame(np.random.randn(8,4), 
+                   columns=list('ABCD'), 
+                   index=pd.date_range('2/1/2020', periods=8))
+
+print(df2)

@@ -1,4 +1,4 @@
-name: datascience_py39
+# name: datascience_py39
 channels:
   - conda-forge
   - defaults
