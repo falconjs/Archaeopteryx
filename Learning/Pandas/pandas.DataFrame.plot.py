@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.ticker as ticker
 
 df1 = pd.DataFrame(columns=["App", "Feature1", "Feature2", "Feature3",
                         "Feature4", "Feature5",
@@ -29,6 +30,43 @@ df3 = pd.DataFrame(np.random.randint(5, size=(100, 3)),
                   index=pd.date_range('2/1/2020', periods=100))
                   
 df4 = df2.join(df3) # Join on index
+
+def ax_format(axs):
+     for i, x in enumerate(axs.flat):
+            # Set Title
+            # x.set_title("Sub Title for Each", weight='bold', size=12, pad=20)
+            x.set_title(x.get_title(), weight='bold', size=12, pad=20)
+
+            x.set_facecolor("#dddddd")
+
+            # Set x-axis label
+            x.set_xlabel("xlabel", labelpad=5, weight='normal', size=10)
+
+            # Set y-axis label
+            x.set_ylabel("Sessions", labelpad=5, weight='normal', size=10)
+
+            x.legend(
+                  labels = ('Feature3', 'Feature6'), 
+                  loc = 'best' # https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.legend.html
+            )
+
+            # Despine
+            x.spines['right'].set_visible(False)
+            x.spines['top'].set_visible(False)
+            x.spines['left'].set_visible(True)
+
+            # Switch off ticks
+            x.tick_params(axis="both", which="both", bottom="off", top="off", labelbottom="on", left="off", right="off", labelleft="on", color='#999999')
+            x.tick_params(axis='x', rotation=0)
+
+            # Draw horizontal axis lines
+            vals = x.get_yticks()
+            for tick in vals:
+                  x.axhline(y=tick, linestyle='dashed', alpha=0.4, color='#ffffff', zorder=1, linewidth=1.5)
+
+            # Format y-axis label
+            x.yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,g} ->'))
+
 
 def df_plot_1(df:pd.DataFrame):
       # -----------------------------------------------------------------------------
@@ -77,44 +115,41 @@ def df_plot_1(df:pd.DataFrame):
 
       # df.set_index('App').T.plot(kind='bar', stacked=True)
 
-      axs = df.hist(by='Feature1', column='Feature3', figsize=(5,5), grid=True)
+      axs = df.hist(by='Feature1', column=['Feature3','Feature6'], figsize=(10,5), grid=True)
 
-      for i,ax in enumerate(axs):
-            for i,x in enumerate(ax):
-                  # Set Title
-                  x.set_title("title", weight='bold', size=20, pad=20)
+      for i, x in enumerate(axs.flat):
+            # Set Title
+            x.set_title("Sub Title for Each", weight='bold', size=12, pad=20)
 
-                  # Set x-axis label
-                  x.set_xlabel("xlabel", labelpad=20, weight='bold', size=12)
+            # Set x-axis label
+            x.set_xlabel("xlabel", labelpad=5, weight='normal', size=10)
 
-                  # Set y-axis label
-                  if i == 0:
-                        x.set_ylabel("Sessions", labelpad=50, weight='bold', size=12)
+            # Set y-axis label
+            x.set_ylabel("Sessions", labelpad=5, weight='normal', size=10)
 
-                  x.legend(
-                        labels = ('Cosine Function', 'Sine Function'), 
-                        loc = 'upper left'
-                  )
+            x.legend(
+                  labels = ('Feature3', 'Feature6'), 
+                  loc = 'best' # https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.legend.html
+            )
 
-                  # Despine
-                  x.spines['right'].set_visible(False)
-                  x.spines['top'].set_visible(False)
-                  x.spines['left'].set_visible(False)
+            # Despine
+            x.spines['right'].set_visible(False)
+            x.spines['top'].set_visible(False)
+            x.spines['left'].set_visible(True)
 
-                  # Switch off ticks
-                  x.tick_params(axis="both", which="both", bottom="off", top="off", labelbottom="on", left="off", right="off", labelleft="on")
+            # Switch off ticks
+            x.tick_params(axis="both", which="both", bottom="off", top="off", labelbottom="on", left="off", right="off", labelleft="on", color='#999999')
+            x.tick_params(axis='x', rotation=0)
 
-                  # Draw horizontal axis lines
-                  vals = x.get_yticks()
-                  for tick in vals:
-                        x.axhline(y=tick, linestyle='dashed', alpha=0.4, color='#eeeeee', zorder=1)
+            # Draw horizontal axis lines
+            vals = x.get_yticks()
+            for tick in vals:
+                  x.axhline(y=tick, linestyle='dashed', alpha=0.4, color='#eeeeee', zorder=1)
 
-
-                  # Format y-axis label
-                  #     x.yaxis.set_major_formatter(StrMethodFormatter('{x:,g}'))
-
-                  x.tick_params(axis='x', rotation=0)
-
+            # Format y-axis label
+            x.yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,g} ->'))
+      
+      plt.tight_layout()
       plt.show()
 
 def df_plot_2(df:pd.DataFrame):
@@ -138,13 +173,15 @@ def df_plot_3(df:pd.DataFrame):
       groups = sorted(df['X'].unique())
       print(groups)
 
-      df.plot(kind='hist', subplots=True,
-            layout=(3,2), grid=True, 
-            bins=10, column=['A','C'], by=['X'], 
-            title=[f'Subtitle {x}' for x in groups]
-            # title='Main Title'
-            )
-      plt.tight_layout()
+      axs = df.plot(kind='hist', subplots=True, figsize=(10,10), layout=(3,2), grid=False, 
+                    bins=10, column=['A','C'], by=['X'], 
+                    title=[f'Subtitle {x}' for x in groups], zorder=9
+                    # title='Main Title' # if single value
+                    )
+
+      ax_format(axs)
+      # plt.subplots_adjust(bottom=0.5, right=0.8, top=0.9)
+      plt.tight_layout(pad=2)
       # plt.figure('Figure 1', tight_layout=True) # no use , will generate a new figure
       plt.show()
 
