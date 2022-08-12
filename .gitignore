@@ -137,7 +137,8 @@ config/**/local/**
 !config/**/local/
 
 # ignore every file in the following folders
-Data/**/*.*
+Data/**
+!Data/**/
 
 # ignore everything but level 1 subfolder in the following folders
 logs/**

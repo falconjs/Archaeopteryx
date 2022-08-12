@@ -5,6 +5,7 @@ https://pandas.pydata.org/pandas-docs/stable/api.html#api-dataframe-plotting
 
 import pandas as pd
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.ticker as ticker
@@ -31,10 +32,12 @@ df3 = pd.DataFrame(np.random.randint(5, size=(100, 3)),
                   
 df4 = df2.join(df3) # Join on index
 
-def ax_format(axs):
-     for i, x in enumerate(axs.flat):
+def ax_s_format(x):
+      print(type(x).mro())
+      if isinstance(x, matplotlib.axes._axes.Axes):
             # Set Title
             # x.set_title("Sub Title for Each", weight='bold', size=12, pad=20)
+
             x.set_title(x.get_title(), weight='bold', size=12, pad=20)
 
             x.set_facecolor("#dddddd")
@@ -63,9 +66,22 @@ def ax_format(axs):
             vals = x.get_yticks()
             for tick in vals:
                   x.axhline(y=tick, linestyle='dashed', alpha=0.4, color='#ffffff', zorder=1, linewidth=1.5)
+            
+            # Draw vertical axis lines
+            vals = x.get_xticks()
+            for tick in vals:
+                  x.axvline(x=tick, linestyle='dashed', alpha=0.4, color='#ffffff', zorder=1, linewidth=1.5)
 
             # Format y-axis label
             x.yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,g} ->'))
+
+def ax_format(axs):
+      print(type(axs).mro())
+      if isinstance(axs, np.ndarray):
+            for i, x in enumerate(axs.flat):
+                  ax_s_format(x)
+      else:
+            ax_s_format(axs)
 
 
 def df_plot_1(df:pd.DataFrame):
@@ -164,6 +180,8 @@ def df_plot_2(df:pd.DataFrame):
 def df_plot_3(df:pd.DataFrame):
       print(df.head())
 
+      # plt.style.use('dark_background')
+
       # since axes is n-array, it can't be used in df.plot ax params value, which need ax object
       # fig, axes = plt.subplots(nrows=3, ncols=3, constrained_layout=True)
       
@@ -183,6 +201,7 @@ def df_plot_3(df:pd.DataFrame):
       # plt.subplots_adjust(bottom=0.5, right=0.8, top=0.9)
       plt.tight_layout(pad=2)
       # plt.figure('Figure 1', tight_layout=True) # no use , will generate a new figure
+
       plt.show()
 
 if __name__ == "__main__":

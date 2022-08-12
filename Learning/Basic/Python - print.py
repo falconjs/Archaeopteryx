@@ -79,4 +79,5 @@ abc
 bdc
 adc
 """
+
 print(f'SQL statement :\n {clause}')
