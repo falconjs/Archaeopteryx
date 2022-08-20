@@ -106,3 +106,5 @@ a = """
 AAA
 """
 str_lt = str(a).split('---')
+
+print(str("other, 中文发言, 1234 ? ").encode('ascii', errors="backslashreplace").decode('utf-8'))
