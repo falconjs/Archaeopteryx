@@ -1,8 +1,9 @@
-# name: datascience_py39
+name: datascience_py39
 channels:
   - conda-forge
   - defaults
 dependencies:
+  - python=3.9
   - boto3
   - jupyter
   - numpy
