@@ -12,6 +12,10 @@ https://docs.python.org/3.6/library/string.html
 print('abc' + 'def')
 # abcdef
 
+txt1 = "My name is {fname}, I'm {age}".format(fname = "John", age = 36)
+txt2 = "My name is {0}, I'm {1}".format("John",36)
+txt3 = "My name is {}, I'm {}".format("John",36) 
+
 str1 = "%d_number" % (10)
 # str1 = '10_number'
 

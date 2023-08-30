@@ -8,7 +8,7 @@ https://docs.python.org/3.6/library/datatypes.html
 8.1. datetime — Basic date and time types
 """
 
-from datetime import datetime, date, time
+from datetime import datetime, date, time, timedelta
 
 datetime.today()
 # Out[5]: datetime.datetime(2018, 8, 12, 17, 59, 18, 903500)
@@ -25,6 +25,16 @@ print(date(2005, 7, 14), time(12, 30))
 
 datetime.strptime("21/11/06 16:30", "%d/%m/%y %H:%M")
 # datetime.datetime(2006, 11, 21, 16, 30)
+
+#salesforce timestamp: 2023-07-19T16:15:04.000+0000
+date_str = '2023-02-28T14:30:21.800+0800'
+date_format = '%Y-%m-%dT%H:%M:%S.%f%z'
+
+date_obj = datetime.strptime(date_str, date_format)
+date_obj = date_obj - timedelta(days=2)
+print(date_obj)
+print(date_obj.strftime(date_format))
+
 
 """
 8.3. collections — Container datatypes

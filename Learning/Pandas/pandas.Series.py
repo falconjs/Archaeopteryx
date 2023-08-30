@@ -144,3 +144,69 @@ s.isin(['cow', 'lama'])
 # 4     True
 # 5    False
 # Name: animal, dtype: bool
+
+
+s = pd.Series(
+ 	{
+        "0": {
+			"attributes": {
+				"type": "Child_Account_vod__c",
+				"url": "789"
+			},
+			"Parent_Account_vod__r": {
+				"attributes": {
+					"type": "Account",
+					"url": "789"
+				},
+				"Id": "0016F00002Yp9zCQAR",
+				"Name": "abc"
+			}
+		},
+		"1": {
+			"attributes": {
+				"type": "Child_Account_vod__c",
+				"url": "147"
+			},
+			"Parent_Account_vod__r": {
+				"attributes": {
+					"type": "Account",
+					"url": "147"
+				},
+				"Id": "0016F00002Yp9zCQAR",
+				"Name": "def"
+			}
+		},
+		"2": {
+			"attributes": {
+				"type": "Child_Account_vod__c",
+				"url": "123"
+			},
+			"Parent_Account_vod__r": {
+				"attributes": {
+					"type": "Account",
+					"url": "123"
+				},
+				"Id": "0016F00002Yp9zCQAR",
+				"Name": "ghj"
+			}
+		}
+    }
+)
+
+s.apply(pd.Series)
+#                                        attributes                              Parent_Account_vod__r
+# 0  {'type': 'Child_Account_vod__c', 'url': '789'}  {'attributes': {'type': 'Account', 'url': '789...
+# 1  {'type': 'Child_Account_vod__c', 'url': '147'}  {'attributes': {'type': 'Account', 'url': '147...
+# 2  {'type': 'Child_Account_vod__c', 'url': '123'}  {'attributes': {'type': 'Account', 'url': '123...
+
+s.apply(pd.Series)['Parent_Account_vod__r']
+# 0    {'attributes': {'type': 'Account', 'url': '789...
+# 1    {'attributes': {'type': 'Account', 'url': '147...
+# 2    {'attributes': {'type': 'Account', 'url': '123...
+# Name: Parent_Account_vod__r, dtype: object
+
+s.apply(pd.Series)['Parent_Account_vod__r'].apply(pd.Series)
+#                           attributes                  Id Name
+# 0  {'type': 'Account', 'url': '789'}  0016F00002Yp9zCQAR  abc
+# 1  {'type': 'Account', 'url': '147'}  0016F00002Yp9zCQAR  def
+# 2  {'type': 'Account', 'url': '123'}  0016F00002Yp9zCQAR  ghj

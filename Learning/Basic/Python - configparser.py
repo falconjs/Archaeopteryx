@@ -47,6 +47,14 @@ config.sections()
 'user' in config
 # False
 
+for k in config['DEFAULT']:
+    print(k)
+
+for k, v in config.items('DEFAULT'):
+    print(k, v)
+    
+
+
 config['bitbucket.org']['User']
 # 'hg'
 
